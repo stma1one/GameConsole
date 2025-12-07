@@ -37,7 +37,8 @@ namespace GameConsole.Pages
                     Console.WriteLine("The user has been successfully logged in");
                     break;
                 }
-                Console.WriteLine("Error: Enter your user details again.");
+                Console.WriteLine("Error: something wrong, try again.");
+                
             }
            
 

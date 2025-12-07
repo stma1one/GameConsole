@@ -11,7 +11,6 @@ namespace GameConsole.Pages
 {
     internal class UserDetailsMenu:MenuScreen
     {
-        public 
         public UserDetailsMenu() : base("User Details Menu")
         {
             Add(new MenuItem("Fluffy Bird", new GameScreen("Fluffy Bird", new FluffyBirdGame())));
