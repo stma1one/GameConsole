@@ -24,8 +24,10 @@ namespace GameConsole.Data
         public static void Register(string name, string userName, string pass)
         {
             var exist = UserList.FirstOrDefault(user => user.UserName == name);
-            if (exist != null)
+            if (exist == null)
                 UserList.Add(new User(name, userName, pass));
+            else
+                throw new Exception("There is such a user");
         }
 
         public static void Update(User u)

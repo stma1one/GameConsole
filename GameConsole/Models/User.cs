@@ -12,7 +12,7 @@ namespace GameConsole.Models
         public string Password { get; set; }
         public string UserName { get; set; }
 
-        public List<HighScore> Scores { get; set; };
+        public List<HighScore> Scores { get; set; }
         public User(string name, string userName, string password)
         {
             this.Name = name;
