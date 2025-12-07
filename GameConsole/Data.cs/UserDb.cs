@@ -27,10 +27,10 @@ namespace GameConsole.Data
         }
      public static void Update(User u)
 {
-    var OldUser = users.FirstOrDefault(user => user.Username == u.Username);
+    //Single - אם קים רק אובייקט אחד - מחזיר אותו אחרת זורק חריגה
+         var OldUser = users.Single(user => user.Username == u.Username);
 
-    if (OldUser == null)
-        throw new InvalidOperationException("no such user exists");
+    
     OldUser.Password = u.Password;
     OldUser.Name = u.Name;
 }
