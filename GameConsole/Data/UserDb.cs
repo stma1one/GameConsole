@@ -15,8 +15,11 @@ namespace GameConsole.Data
         {
             users = new List<User>();
         }
+       
         public static User RegisterUser(string username, string name, string password)
-        { 
+        {
+
+            
             User newUser = new User(username, name, password);
             users.Add(newUser);
             return newUser;
@@ -24,29 +27,35 @@ namespace GameConsole.Data
 
         public static User Login(string username, string password)
         {
-            foreach (User user in users)
-            {
-                if (user.Username == username && user.Password == password)
-                {
-                    return user;
-                }
-            }
-            return null;
+            return  users.SingleOrDefault(user=>user.Username == username && user.Password == password);
+            //foreach (User user in users)
+            //{
+              //  if (user.Username == username && user.Password == password)
+                //{
+                  //  return user;
+                //}
+            //}
+            //return null;
         }
 
+        ///פעולה המקבלת משתמש מוצאת אותו במערכת ומעדכת את פרטיו
+        //אם לא קיים מחזיר חריגה
         public static void Update(User user)
         {
-            foreach (User u in users)
-            {
-                if (u.Username == user.Username)
-                {
+            
+            //מצא את היוזר מהDB אם לא קיים יוזחר EXCEPTION
+            //ואם קיים תעדכן אותו
+
+            User u= users.Single(x=>x.Username==user.Username);
+                   
                     u.Name = user.Name;
                     u.Password = user.Password;
                     return;
-                }
+                
             }
 
-            throw new InvalidOperationException("no such user exists");
+            
         }
     }
 }
+
