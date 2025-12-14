@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameConsole.Base
 {
-    internal class Screen
+    public class Screen
     {
         public string Title { get; set; }
         public Screen(string title)

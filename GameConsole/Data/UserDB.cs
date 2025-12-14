@@ -11,7 +11,7 @@ namespace GameConsole.Data
 {
     internal class UserDB
     {
-        public static List<User> UserList {  get; set; }
+        public static List<User> UserList {get; set; }
         public UserDB()
         {
             UserList = new List<User>();
@@ -24,20 +24,20 @@ namespace GameConsole.Data
         public static void Register(string name, string userName, string pass)
         {
             var exist = UserList.FirstOrDefault(user => user.UserName == name);
-            if (exist == null)
+            if (exist == null && name != null && name != "" && userName != null && userName != "" && pass != null && pass != "")
                 UserList.Add(new User(name, userName, pass));
             else
-                throw new Exception("There is such a user");
+                throw new Exception("There is such a user / the ");
         }
 
         public static void Update(User u)
         {
             var user = UserList.FirstOrDefault(User => User.UserName == u.UserName);
-            if(user != null)
+            if(user != null && user.Name != null && user.Name != "" && user.UserName != null && user.UserName != "")
             {
                 user.UserName = u.UserName;
                 user.Name = u.Name;
-                user.Password = u.Password;
+                //user.Password = u.Password;
             }
             else
             {

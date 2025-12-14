@@ -11,14 +11,15 @@ namespace GameConsole.Models
         public string Name { get; set; }
         public string Password { get; set; }
         public string UserName { get; set; }
-
-        public List<HighScore> Scores { get; set; }
+        public HighScore HighScore { get; set; }
+        public List<HighScore> AllScores { get; set; }
         public User(string name, string userName, string password)
         {
             this.Name = name;
             this.Password = password;
             this.UserName = userName;
-            this.Scores = new List<HighScore>();
+            this.HighScore = null;
+            this.AllScores = new List<HighScore>();
         }
     }
 }

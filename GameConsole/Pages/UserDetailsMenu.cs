@@ -13,8 +13,13 @@ namespace GameConsole.Pages
     {
         public UserDetailsMenu() : base("User Details Menu")
         {
-            Add(new MenuItem("Fluffy Bird", new GameScreen("Fluffy Bird", new FluffyBirdGame())));
-            Add(new MenuItem("Pac Man", new GameScreen("Pac Man", new PacManGame())));
+            Add(new MenuItem("Watch User Details", new WatchUserDetailsScreen()));
+            Add(new MenuItem("Change Name", new ChangeNameScreen()));
+            Add(new MenuItem("Change Password", new ChangePasswordScreen()));
+        }
+        public override void Show()
+        {
+            base.Show();
         }
     }
 }
