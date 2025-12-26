@@ -26,8 +26,17 @@ namespace GameConsole.Base
         public void CenterText(string text)
         {
             Console.SetCursorPosition(Console.WindowTop + Console.WindowWidth / 2 - text.Length / 2, Console.CursorTop);
-            Console.BackgroundColor = ConsoleColor.DarkCyan;
+            // Console.BackgroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine(text);
+            Console.ResetColor();
+        }
+        public void CenterTextWithoutNewLine(string text)
+        {
+            // תנאי כניסה: מקבלת מחרוזת
+            // תנאי יציאה: מדפיסה למסך את המחרוזת ממורכזת בלי לרדת שורה בסוף ההדפסה
+            Console.SetCursorPosition(Console.WindowTop + Console.WindowWidth / 2 - text.Length / 2, Console.CursorTop);
+            // Console.BackgroundColor = ConsoleColor.DarkCyan;
+            Console.Write(text);
             Console.ResetColor();
         }
 

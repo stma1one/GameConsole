@@ -19,9 +19,14 @@ namespace GameConsole.Pages
         {
             base.Show();
             Console.BackgroundColor = ConsoleColor.Blue;
-            CenterText("Name: " + user.Name);
-            CenterText("User name: " + user.UserName);
+            CenterTextWithoutNewLine("Name:");
             Console.ResetColor();
+            Console.WriteLine(" " + this.user.Name);
+            Console.BackgroundColor = ConsoleColor.Blue;
+            CenterTextWithoutNewLine("User name:");
+            Console.ResetColor();
+            Console.WriteLine(" " + this.user.UserName);
+            //Console.ResetColor();
         }
     }
 }

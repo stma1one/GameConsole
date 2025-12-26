@@ -10,10 +10,11 @@ namespace GameConsole.Pages
 {
     internal class AfterLoginMenu:MenuScreen
     {
-        public AfterLoginMenu():base("After Login Menu")
+        public AfterLoginMenu():base("User Menu")
         {
             Add(new MenuItem("User Details", new UserDetailsMenu()));
             Add(new MenuItem("Games List", new GameMenu()));
+            Add(new MenuItem("Watch the scores", new GameHistoryScreen()));
         }
         public override void Show()
         {

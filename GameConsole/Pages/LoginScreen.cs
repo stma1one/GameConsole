@@ -21,7 +21,7 @@ namespace GameConsole.Pages
         public override void Show()
         {
             User user = null;
-
+            Boolean toRegister = false;
             base.Show();
             while (true)
             {
@@ -31,29 +31,33 @@ namespace GameConsole.Pages
                 string name = Console.ReadLine();
                 Console.WriteLine("Password: ");
                 string pass = Console.ReadLine();
-                user = UserDB.login(userName, password);
+                user = UserDB.Login(userName, password);
                 if (user != null)
                 {
                     Console.WriteLine("The user has been successfully logged in");
+                    ConsoleGame.user = user;
                     break;
                 }
+
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine("Error: something wrong, press anything try again or press \"R\" to register.");
                 Console.ResetColor();
                 var k = Console.ReadKey();
-                if((string)(k) == "r" || k == "R")
+                string l = k.ToString();
+                if (l == "r" || l == "R")
                 {
+                    Console.WriteLine("register now");
                     RegisterScreen register = new RegisterScreen();
                     register.Show();
+                    toRegister = true;
+                    break;
                 }
-                
-                
             }
-           
 
-            GameMenu gamesScreen = new GameMenu();
-            gamesScreen.Show();
-
+            if (!toRegister) { 
+                AfterLoginMenu afterLoginMenu = new AfterLoginMenu();
+                afterLoginMenu.Show();
+            }
         }
 
     }

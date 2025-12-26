@@ -16,8 +16,17 @@ namespace GameConsole.Pages
         {
             base.Show();
             var scores = ConsoleGame.user.AllScores.OrderBy(score => score.Score);
-            foreach (var score in scores) {
-                Console.WriteLine(score);
+            if (scores != null)
+            {
+                foreach (var score in scores)
+                {
+                    Console.WriteLine(score);
+                }
             }
+            else
+            {
+                Console.WriteLine("You stil didn't played any game.");
+            }
+        }
     }
 }

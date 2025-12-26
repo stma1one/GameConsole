@@ -21,5 +21,6 @@ namespace GameConsole.Models
             this.HighScore = null;
             this.AllScores = new List<HighScore>();
         }
+       
     }
 }

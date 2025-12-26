@@ -23,11 +23,13 @@ namespace GameConsole.Pages
 
         public override void Show()
         {
+            base.Show();
+            string name;
+            string pass;
+            string userName;
             while (true)
             {
-                string name;
-                string pass;
-                string userName;
+                
                 while (true)
                 {
                     base.Show();
@@ -43,6 +45,7 @@ namespace GameConsole.Pages
                         break;
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.WriteLine("The passwords are not the same. Try again.");
+                    Console.ReadKey();
                     Console.ResetColor();
                 }
                 try{
@@ -51,11 +54,17 @@ namespace GameConsole.Pages
                 }
                 catch
                 {
+                    UserDB.Register(name, userName, pass);
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.WriteLine("A user with that username already exists. Try again.");
+                    Console.ReadKey();
                     Console.ResetColor();
                 }
             }
+            User user = new User(name, userName, password);
+            ConsoleGame.user = user;
+            AfterLoginMenu afterLoginMenu = new AfterLoginMenu();
+            afterLoginMenu.Show();
         }
     }
 }

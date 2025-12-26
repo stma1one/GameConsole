@@ -8,12 +8,18 @@ using GameConsole.Models;
 
 namespace GameConsole.Pages
 {
-    internal class GameHistoryScreen:Screen
+    internal class GameHistoryScreen:MenuScreen
     {
         public List<HighScore> Scores { get; set; }
         public GameHistoryScreen():base("Game History Screen")
         {
-            Scores = ConsoleGame.user.AllScores;
+            Add(new MenuItem("Show last game's score", new ShowLastGaneScreen()));
+            Add(new MenuItem("Sort by result", new SortHistoryByScoreScreen()));
+            Add(new MenuItem("Sort by game name", new SortHistoryGameByNameScreen()));
+        }
+        public override void Show()
+        {
+            base.Show();
         }
 
     }

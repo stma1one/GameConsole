@@ -11,23 +11,21 @@ namespace GameConsole.Data
 {
     internal class UserDB
     {
-        public static List<User> UserList {get; set; }
-        public UserDB()
-        {
-            UserList = new List<User>();
-        }
-        public static User login(string UserName, string pass)
+        public static List<User> UserList = new List<User>();
+        public UserDB(){}
+        public static User Login(string UserName, string pass)
         {
             return UserList.FirstOrDefault(u =>  u.UserName ==  UserName && u.Password == pass);
         }
 
         public static void Register(string name, string userName, string pass)
         {
+            Console.ReadKey();
             var exist = UserList.FirstOrDefault(user => user.UserName == name);
             if (exist == null && name != null && name != "" && userName != null && userName != "" && pass != null && pass != "")
                 UserList.Add(new User(name, userName, pass));
             else
-                throw new Exception("There is such a user / the ");
+                throw new Exception("There is such a user / there was a problem");
         }
 
         public static void Update(User u)
