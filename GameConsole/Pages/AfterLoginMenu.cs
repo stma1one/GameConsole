@@ -30,9 +30,7 @@ namespace GameConsole.Pages
         }
         public override void Show()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
             base.Show();
-            Console.ResetColor();
         }
     }
 }

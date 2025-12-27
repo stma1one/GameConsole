@@ -17,20 +17,7 @@ namespace GameConsole.Pages
         public override void Show()
         {
             base.Show();
-            var scores = ConsoleGame.user.AllScores.OrderBy(score => score.Name);
-            if (scores != null)
-            {
-                int i = 1;
-                foreach (var score in scores)
-                {
-                    Console.WriteLine(i + ". Game: " + score.Name + ", score: " + score.Score);
-                    i++;
-                }
-            }
-            else
-            {
-                Console.WriteLine("You didn't played any game yet.");
-            }
+            
         }
     }
 }
