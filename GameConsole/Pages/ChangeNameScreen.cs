@@ -24,7 +24,7 @@ namespace GameConsole.Pages
                 Console.WriteLine("Enter the new name: ");
                 string name = Console.ReadLine();
                 if (name == null) {
-                    Console.WriteLine("You have to enter somthing.");
+                    Console.WriteLine("You have to enter something.");
                     continue;
                 }
                 try {
@@ -36,6 +36,15 @@ namespace GameConsole.Pages
                     Console.WriteLine("No such user. Try again.");
                 }
             }
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("The name was changed correctly. Press any key to continue.");
+            Console.ReadKey();
+            Console.ResetColor();
+            Screen next = new AfterLoginMenu();
+            next.Show();
+            
+
 
         }
     }

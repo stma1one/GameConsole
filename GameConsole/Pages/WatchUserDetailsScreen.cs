@@ -18,15 +18,25 @@ namespace GameConsole.Pages
         public override void Show()
         {
             base.Show();
-            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Blue;
             CenterTextWithoutNewLine("Name:");
             Console.ResetColor();
             Console.WriteLine(" " + this.user.Name);
-            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Blue;
             CenterTextWithoutNewLine("User name:");
             Console.ResetColor();
             Console.WriteLine(" " + this.user.UserName);
             //Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("\n\nPress any key to continue.");
+            Console.ResetColor();
+            Console.ReadKey();
+
+            Screen next = new AfterLoginMenu();
+            next.Show();
         }
+
+
     }
 }

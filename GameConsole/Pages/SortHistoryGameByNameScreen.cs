@@ -18,6 +18,21 @@ namespace GameConsole.Pages
         {
             base.Show();
             
+
+
+
+
+
+
+
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("\n\nPress any key to continue.");
+            Console.ResetColor();
+            Console.ReadKey();
+
+            Screen next = new AfterLoginMenu();
+            next.Show();
         }
     }
 }

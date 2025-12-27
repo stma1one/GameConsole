@@ -25,6 +25,7 @@ namespace GameConsole.Pages
                     Console.WriteLine("You have to enter somthing.");
                     continue;
                 }
+                
                 try
                 {
                     User temp = new User(ConsoleGame.user.Name, ConsoleGame.user.UserName, pass);
@@ -36,6 +37,13 @@ namespace GameConsole.Pages
                     Console.WriteLine("Error: No such user.");
                 }
             }
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("The password was changed correctly. Press any key to continue.");
+            Console.ReadKey();
+            Console.ResetColor();
+            Screen next = new AfterLoginMenu();
+            next.Show();
 
         }
 

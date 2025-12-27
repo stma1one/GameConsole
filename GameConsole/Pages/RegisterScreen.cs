@@ -33,13 +33,25 @@ namespace GameConsole.Pages
                 while (true)
                 {
                     base.Show();
-                    Console.WriteLine("Enter your name: ");
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("Enter your name: ");
+                    Console.ResetColor();
                     name = Console.ReadLine();
-                    Console.WriteLine("Enter your user name: ");
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("Enter your user name: ");
+                    Console.ResetColor();
                     userName = Console.ReadLine();
-                    Console.WriteLine("Enter your password: ");
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("Enter your password: ");
+                    Console.ResetColor();
                     pass = Console.ReadLine();
-                    Console.WriteLine("Confirm your password: ");
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("Confirm your password: ");
+                    Console.ResetColor();
                     string pass2 = Console.ReadLine();
                     if (pass == pass2)
                         break;
@@ -72,8 +84,20 @@ namespace GameConsole.Pages
             }
             if (!toLogin)
             {
+                
+
                 User user = new User(name, userName, password);
                 ConsoleGame.user = user;
+
+                // מוסיפים נתונים לרשימת התוצאות כדי לדמות מסד נתונים אמיתי ולאפשר צפייה בהיסטוריית המשחקים
+                ConsoleGame.user.AllScores.Add(new HighScore("FluffyBird", 90));
+                ConsoleGame.user.AllScores.Add(new HighScore("FluffyBird", 30));
+                ConsoleGame.user.AllScores.Add(new HighScore("PacMan", 60));
+                ConsoleGame.user.AllScores.Add(new HighScore("FluffyBird", 40));
+                ConsoleGame.user.AllScores.Add(new HighScore("PacMan", 20));
+                ConsoleGame.user.AllScores.Add(new HighScore("Tetris", 50));
+                ConsoleGame.user.AllScores.Add(new HighScore("Tetris", 100));
+
                 AfterLoginMenu afterLoginMenu = new AfterLoginMenu();
                 afterLoginMenu.Show();
             }

@@ -22,6 +22,7 @@ namespace GameConsole.Pages
         } 
         public override void Show()
         {
+            base.Show();
             game.Play();
 
             HighScore newScore = new HighScore(game.Name, game.Score);
@@ -29,6 +30,15 @@ namespace GameConsole.Pages
                 ConsoleGame.user.HighScore = newScore;
             }
             ConsoleGame.user.AllScores.Add(newScore);
+
+            Console.Clear();
+            base.Show();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("Game over. Press any key to continue.");
+            Console.ReadKey();
+            Console.ResetColor();
+            Screen next = new AfterLoginMenu();
+            next.Show();
 
         }
     }

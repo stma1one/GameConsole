@@ -24,7 +24,15 @@ namespace GameConsole.Pages
             {
                 Console.WriteLine("You stil didn't played any game.");
             }
+
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("\n\nPress any key to continue.");
+            Console.ResetColor();
+            Console.ReadKey();
             
+            Screen next = new AfterLoginMenu();
+            next.Show();
         }
+
     }
 }

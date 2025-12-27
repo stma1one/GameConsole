@@ -29,11 +29,18 @@ namespace GameConsole.Pages
                 base.Show();
                 CenterText("Enter the details below:");
                 //Console.ReadKey();
-                Console.WriteLine("User name: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("User name: ");
+                Console.ResetColor();
                 string name = Console.ReadLine();
-                Console.WriteLine("Password: ");
+                
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("Password: ");
+                Console.ResetColor();
                 string pass = Console.ReadLine();
                 user = UserDB.Login(name, pass);
+
                 if (user != null)
                 {
                     Console.WriteLine("The user has been successfully logged in");
@@ -58,7 +65,16 @@ namespace GameConsole.Pages
                 }
             }
 
-            if (!toRegister) { 
+            if (!toRegister) {
+                // מוסיפים נתונים לרשימת התוצאות כדי לדמות מסד נתונים אמיתי ולאפשר צפייה בהיסטוריית המשחקים
+                ConsoleGame.user.AllScores.Add(new HighScore("FluffyBird", 90));
+                ConsoleGame.user.AllScores.Add(new HighScore("FluffyBird", 30));
+                ConsoleGame.user.AllScores.Add(new HighScore("PacMan", 60));
+                ConsoleGame.user.AllScores.Add(new HighScore("FluffyBird", 40));
+                ConsoleGame.user.AllScores.Add(new HighScore("PacMan", 20));
+                ConsoleGame.user.AllScores.Add(new HighScore("Tetris", 50));
+                ConsoleGame.user.AllScores.Add(new HighScore("Tetris", 100));
+
                 AfterLoginMenu afterLoginMenu = new AfterLoginMenu();
                 afterLoginMenu.Show();
             }
