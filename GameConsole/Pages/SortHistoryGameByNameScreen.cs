@@ -32,16 +32,16 @@ namespace GameConsole.Pages
 {
     internal class SortHistoryByScoreScreen:Screen
     {
-        public SortHistoryByScoreScreen():base("History Score"){}
+        public SortHistoryByScoreScreen():base("History Name"){}
 
         public override void Show()
         {
             base.Show();
-            var scores = ConsoleGame.user.AllScores.OrderByDescending(score => score.Score);
+            var names = ConsoleGame.user.AllNames.OrderByDescending(name => name.Score);
             if (scores != null)
             {
                 int i = 1;
-                foreach (var score in scores)
+                foreach (var name in name)
                 {
                     //.Pastel(Color.FromArgb(255, 215, 0)
                     // string write = i.ToString() + ". Score: " + score.Score + ", game: " + score.Name;
