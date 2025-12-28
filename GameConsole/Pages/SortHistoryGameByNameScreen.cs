@@ -18,11 +18,50 @@ namespace GameConsole.Pages
         {
             base.Show();
 
+﻿using GameConsole.Base;
+using GameConsole.Models;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-            // להשלים כאן קוד
-            //
-            //
-            //
+
+namespace GameConsole.Pages
+{
+    internal class SortHistoryByScoreScreen:Screen
+    {
+        public SortHistoryByScoreScreen():base("History Score"){}
+
+        public override void Show()
+        {
+            base.Show();
+            var scores = ConsoleGame.user.AllScores.OrderByDescending(score => score.Score);
+            if (scores != null)
+            {
+                int i = 1;
+                foreach (var score in scores)
+                {
+                    //.Pastel(Color.FromArgb(255, 215, 0)
+                    // string write = i.ToString() + ". Score: " + score.Score + ", game: " + score.Name;
+                    Console.WriteLine(i.ToString() +  ", game: " + score.Name + ", date: " + score.Date);
+                    i++;
+                }
+            }
+            else
+            {
+                Console.WriteLine("You didn't played any game yet.");
+            }
+
+            Console.WriteLine("\n\nPress any key to continue.");
+            Console.ReadKey();
+
+            Screen next = new AfterLoginMenu();
+            next.Show();
+        }
+    }
+}
 
 
             Console.ForegroundColor = ConsoleColor.DarkBlue;
